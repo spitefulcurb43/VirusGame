@@ -152,7 +152,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: 0
+  hp: 100
+  progress: 0
   cursor: {fileID: 0}
+  minigameInfos:
+  - name: Stacker
+    difficulty: 0
+    prefab: {fileID: 0}
 --- !u!4 &387891658
 Transform:
   m_ObjectHideFlags: 0
