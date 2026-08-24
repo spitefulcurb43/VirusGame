@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombSpawner : MonoBehaviour
+public class TabSpawner : MonoBehaviour
 {
-    public GameObject bombTabs;
+    public GameObject projectile;
 
     // Area which the game can spawn objects, play around with caution as some tabs can go out of bounds
     public float distanceLimitX;
@@ -25,11 +25,11 @@ public class BombSpawner : MonoBehaviour
     
     void Update()
     {
-        // Spawns bombs periodically until it runs out of bombs.
+        // Spawns tabs until they can't anymore.
         if(canSpawn && !spawnLimitReached) 
         {
             spawnsLeft--;
-            Instantiate(bombTabs, new Vector3(Random.Range(distanceLimitX,-distanceLimitX),Random.Range(distanceLimitY,-distanceLimitY),0), Quaternion.identity);
+            Instantiate(projectile, new Vector3(transform.position.x + Random.Range(distanceLimitX,-distanceLimitX), transform.position.y + Random.Range(distanceLimitY,-distanceLimitY),0), Quaternion.identity);
             StartCoroutine(Spawn());
         }
         if (spawnsLeft < 1) spawnLimitReached = true;
