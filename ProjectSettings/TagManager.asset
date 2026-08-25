@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - DestroyProjectile
+  - ProtectionObjective
+  - Brick
+  - RhythmCheck
   layers:
   - Default
   - TransparentFX
@@ -12,10 +16,10 @@ TagManager:
   - Water
   - UI
   - 
-  - 
-  - 
-  - 
-  - 
+  - Goal
+  - Bad
+  - Ground
+  - Projectile
   - 
   - 
   - 
