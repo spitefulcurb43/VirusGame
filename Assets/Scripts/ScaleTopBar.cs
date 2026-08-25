@@ -12,11 +12,17 @@ public class ScaleTopBar : MonoBehaviour
 {
     //This will be put on the top bar. It will scale it properly.
     public float height = 0.45f;
+    public float borderSize;
 
-    private float windowSize;
+    private Vector2 windowSize;
 
     private Transform topBar;
     private Transform closeButton;
+
+    public Transform topBorder;
+    public Transform bottomBorder;
+    public Transform leftBorder;
+    public Transform rightBorder;
 
     private void Start()
     {
@@ -27,10 +33,10 @@ public class ScaleTopBar : MonoBehaviour
     void Update()
     {
         //Find the width of the window.
-        windowSize = transform.lossyScale.x;
+        windowSize = transform.lossyScale;
 
         //Set the desired size of top bar to the width of the window & height defined by the above variable.
-        Vector2 topBarScale = new(windowSize, height);
+        Vector2 topBarScale = new(windowSize.x + borderSize * 2, height);
 
         //Set local scale (this is a funny trick but it works)
         topBar.localScale = Vector3.one;
@@ -42,5 +48,20 @@ public class ScaleTopBar : MonoBehaviour
         closeButton.localScale = Vector3.one;
         closeButton.localScale = new Vector2(closeButtonScale.x / closeButton.lossyScale.x, closeButtonScale.y / closeButton.lossyScale.y);
 
+        //Do borders!
+
+        Vector2 verticalBorderScale   = new(windowSize.x + borderSize * 2, borderSize); //Top, Bottom
+        Vector2 horizontalBorderScale = new(borderSize, windowSize.y); //Left, Right
+
+        topBorder.localScale = Vector3.one;
+        leftBorder.localScale = Vector3.one;
+
+        Vector2 verticalBorderSize = new(verticalBorderScale.x / topBorder.lossyScale.x, verticalBorderScale.y / topBorder.lossyScale.y);
+        Vector2 horizontalBorderSize = new(horizontalBorderScale.x / leftBorder.lossyScale.x, horizontalBorderScale.y / leftBorder.lossyScale.y);
+
+        topBorder.localScale = verticalBorderSize;
+        bottomBorder.localScale = verticalBorderSize;
+        leftBorder.localScale = horizontalBorderSize;
+        rightBorder.localScale = horizontalBorderSize;
     }
 }

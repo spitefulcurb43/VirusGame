@@ -35,6 +35,7 @@ public class IntroMessageSequence : MonoBehaviour
 
 
     public Button okButton;
+    public Button virusButton;
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +62,6 @@ public class IntroMessageSequence : MonoBehaviour
         if(!paused && timePassed && !dialogOver)
         {
             MoveScreen();
-            moveAmt++;
         }
     }
 
@@ -77,12 +77,22 @@ public class IntroMessageSequence : MonoBehaviour
             messages.localPosition += Vector3.up * upAmount;
             timeLastMoved = Time.time;
         }
+
+        //Increase the amount of moves that have happened.
+        moveAmt++;
+
+        //Check if you have finished the conversation. If so, make the download button visible.
+        if (moveAmt == m) virusButton.gameObject.SetActive(true);
     }
 
     public void ButtonPress()
     {
         MoveScreen();
-        moveAmt++;
     }
 
+
+    public void SaySomething()
+    {
+        print("button pressed");
+    }
 }

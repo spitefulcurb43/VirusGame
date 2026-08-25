@@ -10,6 +10,10 @@ public class PopUpManager : MonoBehaviour
     public bool movable; //If you can drag to move the popup.
     public bool closable; //If you can close the popup. Minimising sounds too difficult.
 
+    //Colour of disabled close button.
+    public Color inactiveCloseColor;
+    public Color activeCloseColor;
+
     //GameObjects relevant.
     private GameObject topBar;
     private GameObject closeButton;
@@ -45,6 +49,9 @@ public class PopUpManager : MonoBehaviour
 
         //Do close stuff (clicking the close button deletes it)
         if (closable) DoClose();
+
+        //Set the colour of the close bar.
+        closeButton.GetComponent<SpriteRenderer>().color = closable ? activeCloseColor : inactiveCloseColor;
     }
 
     private void DoTopBar()
