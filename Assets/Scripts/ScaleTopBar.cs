@@ -57,7 +57,7 @@ public class ScaleTopBar : MonoBehaviour
         popUpName.localScale = Vector3.one;
         popUpName.localScale = new Vector2(textScale.x / popUpName.lossyScale.x, textScale.y / popUpName.lossyScale.y);
 
-
+        //Make the size of the pop up bar consistent.
         popUpName.sizeDelta = new(popUpName.sizeDelta.x, 1f / popUpName.localScale.y);
 
         //Do borders!
