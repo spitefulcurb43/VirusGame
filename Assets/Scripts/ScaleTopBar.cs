@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Jobs;
 
 
 //READ THIS
@@ -13,11 +14,14 @@ public class ScaleTopBar : MonoBehaviour
     //This will be put on the top bar. It will scale it properly.
     public float height = 0.45f;
     public float borderSize;
+    public float fontSize;
 
     private Vector2 windowSize;
 
     private Transform topBar;
     private Transform closeButton;
+
+    public RectTransform popUpName;
 
     public Transform topBorder;
     public Transform bottomBorder;
@@ -28,6 +32,8 @@ public class ScaleTopBar : MonoBehaviour
     {
         topBar = transform.Find("PopUpTopBar");
         closeButton = transform.Find("CloseButton");
+
+        popUpName = topBar.Find("Name").GetComponent<RectTransform>();
     }
 
     void Update()
@@ -37,8 +43,6 @@ public class ScaleTopBar : MonoBehaviour
 
         //Set the desired size of top bar to the width of the window & height defined by the above variable.
         Vector2 topBarScale = new(windowSize.x + borderSize * 2, height);
-
-        //Set local scale (this is a funny trick but it works)
         topBar.localScale = Vector3.one;
         topBar.localScale = new Vector2(topBarScale.x / topBar.lossyScale.x, topBarScale.y / topBar.lossyScale.y);
 
@@ -47,6 +51,14 @@ public class ScaleTopBar : MonoBehaviour
         //Next, do the close button.
         closeButton.localScale = Vector3.one;
         closeButton.localScale = new Vector2(closeButtonScale.x / closeButton.lossyScale.x, closeButtonScale.y / closeButton.lossyScale.y);
+
+        //Now, sort out the pop up name.
+        Vector2 textScale = new(popUpName.lossyScale.x, popUpName.lossyScale.x);
+        popUpName.localScale = Vector3.one;
+        popUpName.localScale = new Vector2(textScale.x / popUpName.lossyScale.x, textScale.y / popUpName.lossyScale.y);
+
+
+        popUpName.sizeDelta = new(popUpName.sizeDelta.x, 1f / popUpName.localScale.y);
 
         //Do borders!
 
