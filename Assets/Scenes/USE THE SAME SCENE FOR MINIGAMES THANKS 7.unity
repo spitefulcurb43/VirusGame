@@ -181,7 +181,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 7482667652216324306, guid: 07cd1a249db017b4ea89ed835b82d391, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e72400cc1d5fbbf469db704e228acf3c, type: 3}
   m_Color: {r: 0.16075063, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc88dfe17d68b9d4e8e8901a4011d5c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drainrate: 0.05
+  drainrate: 0.028571429
   bonusOnKeyScore: 2
   maxBarSize: 15
 --- !u!1 &397091891
@@ -274,7 +274,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.65, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
 --- !u!50 &397091893
@@ -422,9 +422,9 @@ MonoBehaviour:
   - {fileID: 7269459624092184779, guid: becf31e7304366746b1477e91962a011, type: 3}
   - {fileID: 7269459624092184779, guid: e346fab60f491fc45bf6d54f2d52e2de, type: 3}
   - {fileID: 7269459624092184779, guid: 45272823c3f80e9448b0147cef588800, type: 3}
-  spawningCooldown: 1
+  spawningCooldown: 1.35
   canSpawn: 0
-  spawnsLeft: 25
+  spawnsLeft: 15
   spawnLimitReached: 0
 --- !u!4 &1488665309
 Transform:

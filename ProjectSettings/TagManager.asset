@@ -8,6 +8,7 @@ TagManager:
   - ProtectionObjective
   - Brick
   - RhythmCheck
+  - BounceTaskbar
   layers:
   - Default
   - TransparentFX

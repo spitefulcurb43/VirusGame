@@ -21,7 +21,7 @@ public class KeySpawner : MonoBehaviour
     
     void Update()
     {
-        // Spawns keys until they can't anymore.
+        // Spawns bombs periodically until it runs out of bombs.
         if(canSpawn && !spawnLimitReached) 
         {
             spawnsLeft--;
