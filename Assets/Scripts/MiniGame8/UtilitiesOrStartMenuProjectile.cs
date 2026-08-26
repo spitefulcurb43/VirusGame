@@ -2,19 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TaskbarProjectile : MonoBehaviour
+public class UtilitiesOrStartMenuProjectile : MonoBehaviour
 {
     public bool availableForUse;
     public GameObject player;
     public GameObject explosion;
+
+    // Set speed to low for homing, set it to high for initial rushes
+    public float speed;
+    public Rigidbody2D rb;
+
+    public float lifetime;
+
     /*
-    On enabling, gives the projectile a massive bouncing power
-    Kills itself after a few seconds
+    Fires at the player first on enable
+    Explodes at a larger radius
     */
     
-    public Rigidbody2D rb;
-    public float speed;
-    public float lifetime;
 
     void Awake()
     {
