@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -37,6 +38,17 @@ public class GameManager : MonoBehaviour
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         cursor.position = mousePos;
+    }
+
+    public void SpawnSecondDialog(GameObject prefab)
+    {
+        StartCoroutine(DialogDelay(prefab));
+    }
+    private IEnumerator DialogDelay(GameObject prefab)
+    {
+        yield return new WaitForSeconds(3);
+        Vector2 offset = new(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
+        Instantiate(prefab, offset, Quaternion.identity);
     }
 
 

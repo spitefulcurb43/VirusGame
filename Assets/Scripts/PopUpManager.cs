@@ -29,6 +29,8 @@ public class PopUpManager : MonoBehaviour
 
     Bounds cursor;
 
+    public GameObject nextConvoPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,8 @@ public class PopUpManager : MonoBehaviour
         topBar = transform.Find("PopUpTopBar").gameObject;
         closeButton = topBar.transform.Find("CloseButton").gameObject;
         popUpParent = transform.parent;
+
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -108,5 +112,7 @@ public class PopUpManager : MonoBehaviour
         Animator animator = popUpParent.GetComponent<Animator>();
         animator.Play("Close");
         Destroy(popUpParent.gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
+
+        if(nextConvoPrefab != null) gameManager.SpawnSecondDialog(nextConvoPrefab);
     }
 }

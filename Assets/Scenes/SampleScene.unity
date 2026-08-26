@@ -1131,9 +1131,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3662725165435261484}
-        m_TargetAssemblyTypeName: IntroMessageSequence, Assembly-CSharp
-        m_MethodName: SaySomething
+      - m_Target: {fileID: 6279691126552523137}
+        m_TargetAssemblyTypeName: PopUpManager, Assembly-CSharp
+        m_MethodName: DownloadPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1450,6 +1450,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1182308548663369801, guid: a612d44dd5eab264c96e13d95afaf7f0, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 387891657}
     - target: {fileID: 1428765160524081641, guid: a612d44dd5eab264c96e13d95afaf7f0, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.021428572
@@ -2550,6 +2554,7 @@ MonoBehaviour:
   closable: 0
   inactiveCloseColor: {r: 0.34901962, g: 0.34509805, b: 0.49803922, a: 1}
   activeCloseColor: {r: 1, g: 1, b: 1, a: 1}
+  nextConvoPrefab: {fileID: 3157850189928032689, guid: d445e5240e0b8a3489545ac3a5405e45, type: 3}
 --- !u!1 &6327847208070798696
 GameObject:
   m_ObjectHideFlags: 0
