@@ -82,7 +82,7 @@ public class IntroMessageSequence : MonoBehaviour
         moveAmt++;
 
         //Check if you have finished the conversation. If so, make the download button visible.
-        if (moveAmt == m) virusButton.gameObject.SetActive(true);
+        if (moveAmt == messageAmt) virusButton.gameObject.SetActive(true);
     }
 
     public void ButtonPress()

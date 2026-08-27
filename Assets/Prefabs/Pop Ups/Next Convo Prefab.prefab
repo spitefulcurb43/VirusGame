@@ -57,10 +57,10 @@ MonoBehaviour:
   timeLastMoved: 0
   moveAmt: 0
   downs: 3
-  messageAmt: 6
+  messageAmt: 12
   d: 0
   m: 0
-  pauses: 020000000400000006000000
+  pauses: 010000000400000007000000
   okButton: {fileID: 152557703261651956}
   virusButton: {fileID: 1408620110675434176}
 --- !u!1 &1570915429755857264
@@ -664,7 +664,7 @@ Transform:
   m_GameObject: {fileID: 4191416054856538778}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.15, z: 0}
+  m_LocalPosition: {x: 0, y: -3.75, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -881,7 +881,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d969cb54507ef4c49b53f39c4a09fb6b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f6d624df551343c47b7ccab0771969db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1781,7 +1781,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -3.15}
+  m_AnchoredPosition: {x: 0, y: -3.75}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6951755992381290742

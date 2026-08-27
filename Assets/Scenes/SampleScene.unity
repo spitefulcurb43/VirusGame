@@ -1498,6 +1498,14 @@ PrefabInstance:
       propertyPath: m_text
       value: ERROR
       objectReference: {fileID: 0}
+    - target: {fileID: 9180654072630522088, guid: a612d44dd5eab264c96e13d95afaf7f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180654072630522088, guid: a612d44dd5eab264c96e13d95afaf7f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.63
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
