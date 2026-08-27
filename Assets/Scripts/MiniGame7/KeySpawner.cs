@@ -4,15 +4,37 @@ using UnityEngine;
 
 public class KeySpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public List<GameObject> keys;
+
+    // Spawn Cooldown
+    public float spawningCooldown;
+    public bool canSpawn;
+
+    // Spawn Limit (incase we don't use a timer for this one)
+    public int spawnsLeft;
+    public bool spawnLimitReached;
+
     void Start()
     {
-        
+        canSpawn = true;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        // Spawns bombs periodically until it runs out of bombs.
+        if(canSpawn && !spawnLimitReached) 
+        {
+            spawnsLeft--;
+            Instantiate(keys[Random.Range(0,keys.Count)]);
+            StartCoroutine(Spawn());
+        }
+        if (spawnsLeft < 1) spawnLimitReached = true;
+    }
+    
+    IEnumerator Spawn()
+    {
+        canSpawn = false;
+        yield return new WaitForSeconds(spawningCooldown);
+        canSpawn = true;
     }
 }
