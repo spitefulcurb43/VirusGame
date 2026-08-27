@@ -5,13 +5,8 @@ using UnityEngine;
 public class BrickBehaviour : MonoBehaviour
 {
     // Uses enum to track the 3 possible brick states.
-    public enum BrickState{Idle, Moving, Falling, Stopped};
+    public enum BrickState{Moving, Falling, Stopped};
     public BrickState brickState;
-    public BrickSpawner brickSpawner;
-    
-
-    // Idle time before it is allowed to drop
-    public float idleTime;
 
     public Rigidbody2D rb;
 
@@ -23,8 +18,6 @@ public class BrickBehaviour : MonoBehaviour
     // True to move left, false to move right.
     public bool moveLeftOrRight;
 
-    public bool endReached;
-
     // REMOVE WHEN GAMEMANAGER IS THERE.    
     void Start()
     {
@@ -33,30 +26,27 @@ public class BrickBehaviour : MonoBehaviour
     void Awake()
     {
         brickState = BrickState.Moving;
-        
-        // Prevents instant drops
-        StartCoroutine(EnableDrop());
     }
 
     void Update()
     {
         // Freezes the Y axis to move around left and right.
-        if(brickState == BrickState.Moving || brickState == BrickState.Idle)
+        if(brickState == BrickState.Moving)
         {
             rb.constraints = RigidbodyConstraints2D.FreezePosition;
 
             if(moveLeftOrRight) 
             {
-                transform.position = Vector3.MoveTowards(transform.position, hoverPosL, movingSpeed);
-                if (transform.position == hoverPosL) moveLeftOrRight = false;
+                transform.localPosition = Vector3.MoveTowards(transform.localPosition, hoverPosL, movingSpeed);
+                if (transform.localPosition == hoverPosL) moveLeftOrRight = false;
             }
             else 
             {
-                transform.position = Vector3.MoveTowards(transform.position, hoverPosR, movingSpeed);
-                if (transform.position == hoverPosR) moveLeftOrRight = true;
+                transform.localPosition = Vector3.MoveTowards(transform.localPosition, hoverPosR, movingSpeed);
+                if (transform.localPosition == hoverPosR) moveLeftOrRight = true;
             }
 
-            if(Input.GetKeyDown(KeyCode.Space) && brickState == BrickState.Moving)
+            if(Input.GetKeyDown(KeyCode.Space))
             {
                 brickState = BrickState.Falling;
             }
@@ -72,6 +62,7 @@ public class BrickBehaviour : MonoBehaviour
         if (brickState == BrickState.Stopped)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
         }
     }
 
@@ -80,24 +71,6 @@ public class BrickBehaviour : MonoBehaviour
         if(collision.CompareTag("Brick"))
         {
             brickState = BrickState.Stopped;
-            brickSpawner.stacked++;
         }
-
-        if(collision.CompareTag("DestroyProjectile"))
-        {
-            brickState = BrickState.Stopped;
-            Destroy(gameObject);
-        }
-
-        if(collision.CompareTag("Exit") && brickState == BrickState.Stopped)
-        {
-            endReached = true;
-        }
-    }
-
-    IEnumerator EnableDrop()
-    {
-        yield return new WaitForSeconds(idleTime);
-        brickState = BrickState.Moving;
     }
 }

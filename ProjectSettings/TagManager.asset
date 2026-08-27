@@ -11,6 +11,7 @@ TagManager:
   - BounceTaskbar
   - Projectile
   - Exit
+  - Cursor
   layers:
   - Default
   - TransparentFX
@@ -47,4 +48,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Stacker
+    uniqueID: 710665453
+    locked: 0
+  - name: Intro
+    uniqueID: 3899311393
+    locked: 0
+  - name: UI
+    uniqueID: 658302255
+    locked: 0
+  - name: Lock Screen
+    uniqueID: 3546690997
     locked: 0

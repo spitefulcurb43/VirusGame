@@ -20,6 +20,7 @@ public class TabAttacker : MonoBehaviour
         Vector2 targetPos= target.transform.position;
 
         projectile.GetComponent<Rigidbody2D>().AddForce(1/3f * runSpeed * (targetPos - projectileVec2)/(targetPos - projectileVec2).magnitude);
+
     }
 
     // Destroys projectile if it comes to an important object and deals damage to the protection objective.
@@ -31,7 +32,7 @@ public class TabAttacker : MonoBehaviour
         }
         else if(collision.CompareTag("ProtectionObjective"))
         {
-            collision.GetComponent<ProtectionObjective>().health--;
+            collision.GetComponent<ProtectionObjective>().TakeDamage(1);
             Destroy(gameObject);
         }
     }

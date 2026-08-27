@@ -32,11 +32,7 @@ public class BombSpawner : MonoBehaviour
             Instantiate(bombTabs, new Vector3(Random.Range(distanceLimitX,-distanceLimitX),Random.Range(distanceLimitY,-distanceLimitY),0), Quaternion.identity);
             StartCoroutine(Spawn());
         }
-        if (spawnsLeft < 1) 
-        {
-            spawnLimitReached = true;
-            // CALLS GAMEMANAGER HERE
-        }
+        if (spawnsLeft < 1) spawnLimitReached = true;
     }
     
     IEnumerator Spawn()
