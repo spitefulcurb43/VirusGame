@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4747772156280744749}
   m_Layer: 10
   m_Name: TabAttacker
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

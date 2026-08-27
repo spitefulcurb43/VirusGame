@@ -8,6 +8,7 @@ public class RotatingPuzzle : MonoBehaviour
 {
     public Transform rot;
     public TextMesh text;
+    public int frames;
 
     // This will stay until gameManager caps it.
     void Start()
@@ -18,5 +19,19 @@ public class RotatingPuzzle : MonoBehaviour
     void Update()
     {
         text.text = $"{Math.Round(rot.eulerAngles.z, 2)}°";
+
+        if(rot.eulerAngles.z == 0)
+        {
+            frames++;
+        }
+        else
+        {
+            frames = 0;
+        }
+
+        if(frames == 100)
+        {
+            // CALLS GAMEMANAGER HERE
+        }
     }
 }

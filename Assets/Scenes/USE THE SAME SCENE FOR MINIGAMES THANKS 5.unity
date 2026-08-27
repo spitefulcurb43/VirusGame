@@ -1158,6 +1158,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TabAttacker
       objectReference: {fileID: 0}
+    - target: {fileID: 1089762899029513322, guid: 700a85c3593e7fd4d91137e5664ca60d, type: 3}
+      propertyPath: m_TagString
+      value: Projectile
+      objectReference: {fileID: 0}
     - target: {fileID: 3357513239409779999, guid: 700a85c3593e7fd4d91137e5664ca60d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.78

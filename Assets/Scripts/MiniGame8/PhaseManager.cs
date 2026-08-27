@@ -58,6 +58,10 @@ public class PhaseManager : MonoBehaviour
     }
     void Update()
     {
+        if(phase > 3)
+        {
+            // CALLS GAMEMANAGER TO WIN
+        }
         if(phase == 0 && Input.GetKeyDown(KeyCode.A))
         {
             phase++;
