@@ -10,6 +10,7 @@ TagManager:
   - RhythmCheck
   - BounceTaskbar
   - Projectile
+  - Exit
   layers:
   - Default
   - TransparentFX

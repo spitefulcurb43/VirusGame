@@ -81,4 +81,12 @@ public class Vehicle : MonoBehaviour
             stopped = false;
         }
     }
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if(!isMoving && collision.CompareTag("Exit"))
+        {
+            // CALLS GAME MANAGER HERE
+        }
+    }
 }
