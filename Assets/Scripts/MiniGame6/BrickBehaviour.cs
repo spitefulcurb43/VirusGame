@@ -37,13 +37,13 @@ public class BrickBehaviour : MonoBehaviour
 
             if(moveLeftOrRight) 
             {
-                transform.position = Vector3.MoveTowards(transform.position, hoverPosL, movingSpeed);
-                if (transform.position == hoverPosL) moveLeftOrRight = false;
+                transform.localPosition = Vector3.MoveTowards(transform.localPosition, hoverPosL, movingSpeed);
+                if (transform.localPosition == hoverPosL) moveLeftOrRight = false;
             }
             else 
             {
-                transform.position = Vector3.MoveTowards(transform.position, hoverPosR, movingSpeed);
-                if (transform.position == hoverPosR) moveLeftOrRight = true;
+                transform.localPosition = Vector3.MoveTowards(transform.localPosition, hoverPosR, movingSpeed);
+                if (transform.localPosition == hoverPosR) moveLeftOrRight = true;
             }
 
             if(Input.GetKeyDown(KeyCode.Space))
@@ -62,6 +62,7 @@ public class BrickBehaviour : MonoBehaviour
         if (brickState == BrickState.Stopped)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
         }
     }
 
