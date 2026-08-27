@@ -32,11 +32,7 @@ public class TabSpawner : MonoBehaviour
             Instantiate(projectile, new Vector3(transform.position.x + Random.Range(distanceLimitX,-distanceLimitX), transform.position.y + Random.Range(distanceLimitY,-distanceLimitY),0), Quaternion.identity);
             StartCoroutine(Spawn());
         }
-        if (spawnsLeft < 1)
-        {
-            spawnLimitReached = true;
-            // CALLS GAMEMANAGER TO WIN
-        } 
+        if (spawnsLeft < 1) spawnLimitReached = true;
     }
     
     IEnumerator Spawn()
@@ -45,6 +41,4 @@ public class TabSpawner : MonoBehaviour
         yield return new WaitForSeconds(spawningCooldown);
         canSpawn = true;
     }
-
-
 }
