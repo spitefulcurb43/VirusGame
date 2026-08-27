@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,7 +17,9 @@ public class GameManager : MonoBehaviour
     public int hp = 100; //How many files you have left.
     public int progress = 0; //How complete the antivirus installation is.
 
-
+    //For help messages
+    public Animator helpAnimator;
+    public TextMeshPro helpText;
     
 
     // Start is called before the first frame update
@@ -24,6 +27,8 @@ public class GameManager : MonoBehaviour
     {
         //Initialise cursor
         cursor = transform.Find("Cursor");
+
+        DoHelpMessage("this is a test lololol >:)", 4f);
     }
 
     // Update is called once per frame
@@ -51,7 +56,22 @@ public class GameManager : MonoBehaviour
         Instantiate(prefab, offset, Quaternion.identity);
     }
 
+    public void DoHelpMessage(string message, float time)
+    {
+        //Spawns in a help message for a certain amount of time.
 
+        //The animation takes 0.5s to appear and 0.5s to disappear. We will spawn it, wait x time, and despawn it.
+
+        helpText.text = message;
+        StartCoroutine(HelpMessageTimer(time));
+    }
+
+    private IEnumerator HelpMessageTimer(float time)
+    {
+        helpAnimator.Play("Open");
+        yield return new WaitForSeconds(time + helpAnimator.GetCurrentAnimatorStateInfo(0).length);
+        helpAnimator.Play("Close");
+    }
 
     /*This is a struct I made to store some simple info about each minigame. 
     With this we could:
