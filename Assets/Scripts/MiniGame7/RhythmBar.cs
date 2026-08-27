@@ -7,7 +7,6 @@ public class RhythmBar : MonoBehaviour
     public float drainrate;
     public float bonusOnKeyScore;
     public float maxBarSize;
-    public bool canDrain;
 
     // REMOVE WHEN GAMEMANAGER CAPS FPS
     void Start()
@@ -17,22 +16,8 @@ public class RhythmBar : MonoBehaviour
 
     void Update()
     {
-        if(canDrain)
-        {
-            if (transform.localScale.y > 0) transform.localScale -= Vector3.up * drainrate;
-            else transform.localScale = new Vector3 (transform.localScale.x, 0, 1);
-        }
-
-        if (transform.localScale.y == maxBarSize)
-        {
-            canDrain = false;
-            // CALLS GAMEMANAGER TO MINIGAME 8
-        }
-        if (transform.localScale.y == 0)
-        {
-            canDrain = false;
-            // CALLS GAMEMANAGER TO LOSE
-        }
+        if (transform.localScale.y > 0) transform.localScale -= Vector3.up * drainrate;
+        else transform.localScale = new Vector3 (transform.localScale.x, 0, 1);
     }
 
     public void ExtendBar()
@@ -44,7 +29,7 @@ public class RhythmBar : MonoBehaviour
     public void DamageBar()
     {
         // Half damage to account for the drain
-        if (transform.localScale.y > 0) transform.localScale -= Vector3.up * bonusOnKeyScore / 2;
-        else transform.localScale = new Vector3 (transform.localScale.x, 0, 1);
+        if (transform.localScale.y < maxBarSize) transform.localScale -= Vector3.up * bonusOnKeyScore / 2;
+        else transform.localScale = new Vector3 (transform.localScale.x, maxBarSize, 1);
     }
 }

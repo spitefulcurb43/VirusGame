@@ -1261,8 +1261,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.494, y: 0.402}
-  m_SizeDelta: {x: 31.428572, y: 0.115384616}
+  m_AnchoredPosition: {x: -0.5, y: 0.42307693}
+  m_SizeDelta: {x: 31.428572, y: 0.08461539}
   m_Pivot: {x: 0, y: 1}
 --- !u!23 &5583261090453718651
 MeshRenderer:
@@ -1525,6 +1525,7 @@ MonoBehaviour:
   topBar: {fileID: 5251728095354910094}
   closeButton: {fileID: 766961221991222063}
   popUpName: {fileID: 384700451421964885}
+  popUpDescription: {fileID: 1560755672477081499}
   bottomBorder: {fileID: 8538899160478193219}
   leftBorder: {fileID: 8803962586548069019}
   rightBorder: {fileID: 5657502797902457038}

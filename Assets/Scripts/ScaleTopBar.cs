@@ -27,6 +27,8 @@ public class ScaleTopBar : MonoBehaviour
     public Transform closeButton;
 
     public RectTransform popUpName;
+    public RectTransform popUpDescription;
+    public RectTransform popUpScore;
 
     public Transform bottomBorder;
     public Transform leftBorder;
@@ -61,7 +63,8 @@ public class ScaleTopBar : MonoBehaviour
         //Now, sort out the pop up name.
         Vector2 textScale = new(popUpName.lossyScale.x, popUpName.lossyScale.x);
         popUpName.localScale = Vector3.one;
-        popUpName.localScale = new Vector2(textScale.x / popUpName.lossyScale.x, textScale.y / popUpName.lossyScale.y);
+        Vector2 nameScale = new Vector2(textScale.x / popUpName.lossyScale.x, textScale.y / popUpName.lossyScale.y);
+        popUpName.localScale = nameScale;
 
         //Make the size of the pop up bar consistent & not buggy.
 
@@ -69,6 +72,26 @@ public class ScaleTopBar : MonoBehaviour
         float nameX = nameWidth * ((windowSize.x - borderSize - height) / windowSize.x);
 
         popUpName.sizeDelta = new(nameX, 1f / popUpName.localScale.y * blueBarRatio); //ratio
+
+        //Now do the same for the description.
+        if(popUpDescription != null)
+        {
+            //The Y position of this will be between 1 and 0, 1 is top of bar 0 is bottom.
+            //We know the blue bar ratio because we have that.
+            popUpDescription.localPosition = new(-0.5f, 1f - blueBarRatio);
+
+            //Next, get the local scale right. This is the same as the pop up name local scale.
+            popUpDescription.localScale = nameScale;
+
+            //Last, get the width of the popup right. This is easy because we are goated.
+            popUpDescription.sizeDelta = new(nameWidth, 1f / popUpDescription.localScale.y * (1 - blueBarRatio)); //ratio
+        }
+        if(popUpScore != null)
+        {
+            popUpScore.localPosition = popUpDescription.localPosition;
+            popUpScore.localScale = popUpDescription.localScale;
+            popUpDescription.sizeDelta = popUpScore.sizeDelta;
+        }
 
         //Do borders!
 

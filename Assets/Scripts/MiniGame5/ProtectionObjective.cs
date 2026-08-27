@@ -1,23 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering;
 
 public class ProtectionObjective : MonoBehaviour
 {
     public int health;
 
-    void Update()
+    public void TakeDamage(int damage)
     {
-        if(health < 1)
+        health -= damage;
+
+        if(health <= 0)
         {
-            // CALLS GAMEMANAGER TO LOSE    
+            LoseGame();
         }
     }
-    void OnTriggerEnter2D(Collider2D collision)
+    void LoseGame()
     {
-        if(collision.CompareTag("Projectile"))
-        {
-            health--;
-        }
+        Debug.Log("You lose!");
     }
+
 }

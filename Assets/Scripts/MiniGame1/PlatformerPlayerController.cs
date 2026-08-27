@@ -25,8 +25,6 @@ public class PlatformerPlayerController : MonoBehaviour
     // Ground check
     public float checkDistance;
 
-    public Transform entrance;
-
     // Other Layers (Note: Importing Scripts will break this sometimes so make sure to update this to your unity project!!!)
     public LayerMask goalLayer;
     public LayerMask dangerLayer;
@@ -100,19 +98,19 @@ public class PlatformerPlayerController : MonoBehaviour
         return Physics2D.CapsuleCast(transform.position, transform.localScale, CapsuleDirection2D.Vertical, 0f, -transform.up, checkDistance, groundLayer);
     }
 
-
+    /*
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (((1 << collision.gameObject.layer) & goalLayer) != 0)
         {
-            print("ok");
-            // OPENS THE MESSAGE TAB ON THE COMPUTER AND CONTINUES MINIGAME 2
+            GameManager.gameState = GameManager.GameState.win;
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
 
         if (((1 << collision.gameObject.layer) & dangerLayer) != 0)
         {
-            print("FUCK");
-            // TELEPORTS PLAYER BACK TO ENTRANCE
+            GameManager.gameState = GameManager.GameState.lose;
         }
     }
+    */
 }

@@ -8,30 +8,35 @@ public class RotatingPuzzle : MonoBehaviour
 {
     public Transform rot;
     public TextMesh text;
-    public int frames;
-
+    public TextMesh rotateMeText;
+    public GameObject rotatingMiniGame;
+    private int randomDegree;
+    private bool hasWon = false;
     // This will stay until gameManager caps it.
     void Start()
     {
         Application.targetFrameRate = 60;
+
+        randomDegree = UnityEngine.Random.Range(0, 361);
     }
 
     void Update()
     {
         text.text = $"{Math.Round(rot.eulerAngles.z, 2)}°";
+        rotateMeText.text = $"Rotate me: {randomDegree}";
 
-        if(rot.eulerAngles.z == 0)
-        {
-            frames++;
-        }
-        else
-        {
-            frames = 0;
-        }
+        bool releasedArrow = Input.GetMouseButtonUp(0);
 
-        if(frames == 100)
+        if(!hasWon && releasedArrow && Mathf.DeltaAngle(rot.eulerAngles.z, randomDegree) == 0)
         {
-            // CALLS GAMEMANAGER HERE
+            Win();
         }
+    }
+
+    void Win() // reference gamemanager here
+    {
+        hasWon = true;
+        rotatingMiniGame.gameObject.SetActive(false);
+        Debug.Log("you won!");
     }
 }
