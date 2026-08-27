@@ -2310,7 +2310,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
+--- !u!114 &1370074643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370074642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c63d7bd7cbc5a374eb6bd39ce441e3dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: 0
+  hp: 100
+  progress: 0
+  helpAnimator: {fileID: 0}
+  helpText: {fileID: 0}
+  cursor: {fileID: 0}
+  minigameInfos: []
+--- !u!4 &1370074644
+=======
 --- !u!4 &1072734358
+>>>>>>> parent of 224dce8 (added deivydas prefabs)
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2622,9 +2645,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: PopUp (1)
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+    - target: {fileID: 7867587417549137715, guid: 7df15059e4c0e8945bf3de595ffa47e4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+=======
     - target: {fileID: 9064362939937922172, guid: a612d44dd5eab264c96e13d95afaf7f0, type: 3}
       propertyPath: m_text
       value: ERROR
+>>>>>>> parent of 224dce8 (added deivydas prefabs)
       objectReference: {fileID: 0}
     - target: {fileID: 9180654072630522088, guid: a612d44dd5eab264c96e13d95afaf7f0, type: 3}
       propertyPath: m_LocalPosition.x
