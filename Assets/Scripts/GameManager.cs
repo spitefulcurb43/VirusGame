@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         //Initialise cursor
         cursor = transform.Find("Cursor");
 
-        DoHelpMessage("this is a test lololol >:)", 4f);
+        //DoHelpMessage("this is a test lololol >:)", 4f);
     }
 
     // Update is called once per frame

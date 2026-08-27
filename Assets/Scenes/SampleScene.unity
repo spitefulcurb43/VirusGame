@@ -528,6 +528,8 @@ MonoBehaviour:
   gameState: 0
   hp: 100
   progress: 0
+  helpAnimator: {fileID: 0}
+  helpText: {fileID: 0}
   cursor: {fileID: 0}
   minigameInfos: []
 --- !u!4 &1370074644
@@ -690,7 +692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7867587417549137715, guid: 7df15059e4c0e8945bf3de595ffa47e4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8402061695889863861, guid: 7df15059e4c0e8945bf3de595ffa47e4, type: 3}
       propertyPath: m_TagString
