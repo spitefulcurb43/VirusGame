@@ -1430,7 +1430,7 @@ MonoBehaviour:
   helpAnimator: {fileID: 733619077}
   helpText: {fileID: 25939348}
   cursor: {fileID: 0}
-  minigame1EndPrefab: {fileID: 3409079534634746494, guid: a6ad0ab695c0bc240a8812383c5228dc, type: 3}
+  minigame1EndObject: {fileID: 2249647100713269943}
   minigameInfos:
   - name: Stacker
     difficulty: 0

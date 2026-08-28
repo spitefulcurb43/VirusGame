@@ -76,6 +76,8 @@ public class GameManager : MonoBehaviour
         if(minigameNumber == 1)
         {
             print("spawn minigame 1 one the first");
+            //for now im just gonna spawn the next bit here for the video im sending chen
+            EndMinigame(1);
         }
         else if (minigameNumber == 2)
         {
@@ -84,13 +86,13 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public GameObject minigame1EndPrefab;
+    public GameObject minigame1EndObject;
     public void EndMinigame(int minigameNumber)
     {
         if(minigameNumber == 1)
         {
             print("spawn next thing (google browser thing)");
-            Instantiate(minigame1EndPrefab);
+            minigame1EndObject.SetActive(true);
         }
     }
 

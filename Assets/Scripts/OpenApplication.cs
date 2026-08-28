@@ -12,6 +12,8 @@ public class OpenApplication : MonoBehaviour
     public float highlightAlpha;
     public float selectedAlpha;
 
+    private bool closing = false;
+
     public bool clickedOnce;
 
     public GameObject applicationPopUp;
@@ -49,7 +51,7 @@ public class OpenApplication : MonoBehaviour
             if (Input.GetMouseButtonDown(0)) //clicked again
             {
                 //is touching object?
-                if (cursorBounds.Intersects(renderer.bounds))
+                if (cursorBounds.Intersects(renderer.bounds) && !closing)
                 {
                     //You've double clicked, it will open
                     Open();
@@ -85,6 +87,7 @@ public class OpenApplication : MonoBehaviour
 
     private IEnumerator CloseAndDestroy()
     {
+        closing = true;
         Animator thisAnim = transform.parent.GetComponent<Animator>();
 
         thisAnim.Play("close");
