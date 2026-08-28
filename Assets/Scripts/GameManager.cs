@@ -71,6 +71,25 @@ public class GameManager : MonoBehaviour
         helpAnimator.Play("Close");
     }
 
+    public void SpawnMinigame(int minigameNumber)
+    {
+        if(minigameNumber == 1)
+        {
+            print("spawn minigame");
+        }
+    }
+
+
+    public GameObject minigame1EndPrefab;
+    public void EndMinigame(int minigameNumber)
+    {
+        if(minigameNumber == 1)
+        {
+            print("spawn next thing (google browser thing)");
+            Instantiate(minigame1EndPrefab);
+        }
+    }
+
     /*This is a struct I made to store some simple info about each minigame. 
     With this we could:
     - Load specific minigames
