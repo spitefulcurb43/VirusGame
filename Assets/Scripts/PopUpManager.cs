@@ -27,6 +27,8 @@ public class PopUpManager : MonoBehaviour
 
     private bool connected;
 
+    public GameObject downloadedApp;
+
     Bounds cursor;
 
     public GameObject nextConvoPrefab;
@@ -113,6 +115,12 @@ public class PopUpManager : MonoBehaviour
         animator.Play("Close");
         Destroy(popUpParent.gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
 
+
         if(nextConvoPrefab != null) gameManager.SpawnSecondDialog(nextConvoPrefab);
+        else if (downloadedApp != null)
+        {
+            //thbffffft
+            downloadedApp.SetActive(true);
+        }
     }
 }

@@ -11,10 +11,14 @@ public class MenuScreen : MonoBehaviour
     public string correctPassword = "password";
 
     public int maxPasswordLength;
+
+    public GameObject messageScreen;
+
+    public bool enableOnStart;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (enableOnStart) GetComponent<Canvas>().enabled = true;
     }
 
     // Update is called once per frame
@@ -49,7 +53,9 @@ public class MenuScreen : MonoBehaviour
         if (password == correctPassword)
         {
             print("UNLOCKED! " + password);
-            transform.gameObject.SetActive(false);
+            GetComponent<Canvas>().enabled = false;
+
+            StartCoroutine(ActivateWithDelay(messageScreen, 0.75f));
         }
         else
         {
@@ -57,5 +63,11 @@ public class MenuScreen : MonoBehaviour
             foreach (Transform kid in dotParent) Destroy(kid.gameObject);
             password = "";
         }
+    }
+
+    private IEnumerator ActivateWithDelay(GameObject obj, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        obj.SetActive(true);
     }
 }
