@@ -75,7 +75,11 @@ public class GameManager : MonoBehaviour
     {
         if(minigameNumber == 1)
         {
-            print("spawn minigame");
+            print("spawn minigame 1 one the first");
+        }
+        else if (minigameNumber == 2)
+        {
+            print("spawn minigame 2 two the second");
         }
     }
 

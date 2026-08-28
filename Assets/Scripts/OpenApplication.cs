@@ -89,6 +89,8 @@ public class OpenApplication : MonoBehaviour
 
         thisAnim.Play("close");
 
+        gameManager.SpawnMinigame(1);
+
         yield return new WaitForSeconds(thisAnim.GetCurrentAnimatorStateInfo(0).length);
 
         Destroy(transform.parent.gameObject);
